@@ -1,6 +1,7 @@
 ;; Solutions for 4clojure.com problems 20 to 29
 
-(ns foreclojure-solutions.solutions-02)
+(ns assurya.foreclojure-solutions.solutions-02)
+
 
 ;; #21: Nth Element
 ;; Write a function which returns the Nth element from a sequence.
@@ -28,3 +29,13 @@
       (empty? coll) n
       :else (s22b (rest coll) (inc n))))))
 
+
+;; #23: Reverse a Sequence
+;; Write a function which reverses a sequence.
+
+(defn sol-23 []
+  (reduce #(cons %2 (if (seq? %1) %1 (vector %1)))))
+
+(reduce #(cons %2 (if (seq? %1) %1 (vector %1))) '() [2 1 2 3])
+
+((sol-23) [1 2 3])
